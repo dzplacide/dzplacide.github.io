@@ -376,8 +376,6 @@ DC name    : srv-ub-dc1.samba.lan
         </ul>
       </div>
       <div class="chips"><span class="chip">Active Directory</span><span class="chip">Server Core</span><span class="chip">GPO</span><span class="chip">DFS-R</span><span class="chip">PowerShell</span><span class="chip">DHCP / DNS</span><span class="chip">SCVMM</span></div>
-      <div class="learn" lang="fr"><b>Dépannage marquant :</b> la promotion du second contrôleur de domaine échouait avec une « erreur inconnue ». En isolant les causes une à une, j'ai trouvé qu'il fallait redémarrer après l'installation du rôle AD DS et fournir des identifiants du domaine (<code>DOMAINE\Administrateur</code>) plutôt qu'un compte local. J'ai aussi diagnostiqué un rollback USN et une mauvaise configuration DNS lors d'un autre labo.</div>
-      <div class="learn" lang="en"><b>Notable troubleshooting:</b> promoting the second domain controller kept failing with an "unknown error". Ruling out causes one by one, I found it needed a reboot after installing the AD DS role and domain-qualified credentials (<code>DOMAIN\Administrator</code>) instead of a local account. In another lab I diagnosed a USN rollback and a DNS misconfiguration.</div>
     </article>
 
     <div class="grid3">
