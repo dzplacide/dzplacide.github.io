@@ -107,6 +107,57 @@
   .clinks{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
   .clinks .btn{font-family:var(--mono);font-weight:500;font-size:.88rem}
   footer{border-top:1px solid var(--line);padding:26px 0;color:#64748b;font-size:.85rem;text-align:center}
+
+  /* --- ajouts : bouton contact nav, photo, galerie, WhatsApp, compteur --- */
+  .navright{display:flex;align-items:center;gap:10px}
+  .navcta{background:var(--accent);color:#04201c;font-weight:600;font-size:.88rem;padding:7px 14px;border-radius:8px;white-space:nowrap}
+  .navcta:hover{text-decoration:none;filter:brightness(1.08)}
+  .btn.light{background:#fff;color:#0b1220}
+  .btn.outline{border:1.5px solid var(--accent);color:var(--accent)}
+  .hero-visual{display:flex;justify-content:center}
+  .photo-frame{position:relative;width:300px;height:300px;border-radius:50%;padding:7px;
+    background:conic-gradient(from 200deg,var(--accent),var(--accent2),var(--accent));
+    box-shadow:0 0 0 6px rgba(45,212,191,.08),0 0 45px rgba(45,212,191,.35)}
+  .photo-frame img,.photo-frame .initials{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:#0e1830;border:4px solid var(--bg)}
+  .photo-frame .initials{display:none;align-items:center;justify-content:center;font-family:var(--mono);font-size:4.2rem;font-weight:600;color:var(--accent)}
+  .photo-frame.noimg img{display:none}.photo-frame.noimg .initials{display:flex}
+  .photo-frame .status{position:absolute;bottom:22px;right:26px;width:22px;height:22px;border-radius:50%;background:#4ade80;border:4px solid var(--bg)}
+  @media(max-width:860px){.photo-frame{width:220px;height:220px}.hero-visual{order:-1}}
+
+  .carousel{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#070d18}
+  .slides{display:flex;transition:transform .6s ease}
+  .slide{min-width:100%;position:relative;aspect-ratio:16/8;background:#0e1830;margin:0}
+  .slide img{width:100%;height:100%;object-fit:cover;display:block}
+  .slide .ph{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:10px;
+    background:radial-gradient(circle at 30% 30%,rgba(45,212,191,.18),transparent 55%),radial-gradient(circle at 75% 70%,rgba(96,165,250,.18),transparent 55%),#0e1830;color:var(--muted);font-family:var(--mono);font-size:.85rem}
+  .slide .ph b{font-size:2.4rem;color:var(--accent)}
+  .slide.noimg img{display:none}.slide.noimg .ph{display:flex}
+  .slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 22px 16px;background:linear-gradient(transparent,rgba(5,10,20,.92));font-size:.98rem}
+  .cbtn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(11,18,32,.75);color:var(--text);font-size:1.2rem;cursor:pointer}
+  .cbtn:hover{border-color:var(--accent)}
+  .cbtn.prev{left:14px}.cbtn.next{right:14px}
+  .dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
+  .dots button{width:10px;height:10px;border-radius:50%;border:0;background:#334155;cursor:pointer;padding:0;transition:width .3s}
+  .dots button.on{background:var(--accent);width:26px;border-radius:6px}
+
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:20;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:600;
+    padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.4);font-size:.95rem}
+  .wa-float:hover{text-decoration:none;filter:brightness(1.07)}
+  .wa-float svg{width:24px;height:24px}
+  @media(max-width:560px){.wa-float span{display:none}.wa-float{padding:14px}}
+  .btn.wa{background:#25D366;color:#fff}
+  .counter{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+  .counter img{height:20px;display:block}
+  .share{margin-top:34px;padding-top:26px;border-top:1px dashed var(--line)}
+  .share h3{font-size:1rem;color:var(--muted);font-weight:500;margin-bottom:14px}
+  .sbtns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+  .sbtn{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:10px;font-weight:600;font-size:.88rem;color:#fff;border:0;cursor:pointer;font-family:inherit}
+  .sbtn:hover{text-decoration:none;filter:brightness(1.1)}
+  .sbtn svg{width:18px;height:18px;fill:currentColor}
+  .sbtn.li{background:#0A66C2}.sbtn.fb{background:#1877F2}.sbtn.x{background:#000;border:1px solid #333}
+  .sbtn.wa2{background:#25D366}.sbtn.mail{background:#475569}.sbtn.copy{background:var(--card);border:1px solid var(--line)}
+  .sbtn.native{background:var(--accent);color:#04201c;display:none}
+  .copied{font-size:.82rem;color:var(--accent);margin-top:10px;min-height:1.2em}
 </style>
 </head>
 <body>
@@ -117,11 +168,14 @@
     <nav class="links">
       <a href="#a-propos"><span lang="fr">À propos</span><span lang="en">About</span></a>
       <a href="#projets"><span lang="fr">Projets</span><span lang="en">Projects</span></a>
+      <a href="#galerie"><span lang="fr">Galerie</span><span lang="en">Gallery</span></a>
       <a href="#competences"><span lang="fr">Compétences</span><span lang="en">Skills</span></a>
       <a href="#parcours"><span lang="fr">Parcours</span><span lang="en">Experience</span></a>
-      <a href="#contact">Contact</a>
     </nav>
-    <button class="langbtn" id="langbtn" type="button" aria-label="Changer de langue / Switch language">EN</button>
+    <div class="navright">
+      <a class="navcta" href="#contact"><span lang="fr">Me contacter</span><span lang="en">Contact me</span></a>
+      <button class="langbtn" id="langbtn" type="button" aria-label="Changer de langue / Switch language">EN</button>
+    </div>
   </div>
 </header>
 
@@ -142,25 +196,17 @@
       <p class="lead" lang="fr">Ancien enseignant en informatique (12 ans), je me spécialise maintenant en administration de serveurs Windows et Linux, en réseaux et en infonuagique Azure. J'apprends en construisant : mon homelab tourne 24/7 à la maison.</p>
       <p class="lead" lang="en">Former computer science teacher (12 years), now specializing in Windows and Linux server administration, networking and Azure cloud. I learn by building: my homelab runs 24/7 at home.</p>
       <div class="btns">
-        <a class="btn primary" href="#projets"><span lang="fr">Voir mes projets</span><span lang="en">See my projects</span></a>
-        <a class="btn ghost" href="#contact"><span lang="fr">Me contacter</span><span lang="en">Contact me</span></a>
+        <a class="btn primary" href="#contact"><span lang="fr">Me contacter</span><span lang="en">Contact me</span></a>
+        <a class="btn light" data-cfg-href="cv" href="#" download><span lang="fr">Télécharger mon CV</span><span lang="en">Download my CV</span></a>
+        <a class="btn outline" href="#projets"><span lang="fr">Voir mes projets</span><span lang="en">See my projects</span></a>
       </div>
     </div>
-    <div class="term" aria-hidden="true">
-      <div class="bar"><i></i><i></i><i></i></div>
-<pre><span class="p">placide@homelab</span>:~$ <span class="c">ssh admin@R1-cisco1921</span>
-R1# <span class="c">show ip interface brief | include \.</span>
-<span class="d">Interface     IP-Address      Status  Protocol</span>
-Gi0/0.10      192.168.10.1    <span class="ok">up</span>      <span class="ok">up</span>
-Gi0/0.20      192.168.20.1    <span class="ok">up</span>      <span class="ok">up</span>
-Gi0/0.30      192.168.30.1    <span class="ok">up</span>      <span class="ok">up</span>
-R1# <span class="c">ping 192.168.10.20 source Gi0/0.20</span>
-!!!!!  <span class="ok">Success rate is 100 percent</span>
-R1# <span class="c">exit</span>
-<span class="p">placide@srv-ub-dc1</span>:~$ <span class="c">samba-tool domain info 127.0.0.1</span>
-Domain     : <span class="ok">samba.lan</span>
-DC name    : srv-ub-dc1.samba.lan
-<span class="p">placide@srv-ub-dc1</span>:~$ <span class="ok">█</span></pre>
+    <div class="hero-visual">
+      <div class="photo-frame" id="photoFrame">
+        <img id="profilePhoto" alt="Photo de Placide Dzeugang">
+        <div class="initials">PD</div>
+        <span class="status" title="Disponible / Available"></span>
+      </div>
     </div>
   </div>
 
@@ -277,6 +323,24 @@ DC name    : srv-ub-dc1.samba.lan
       </div>
       <div class="learn" lang="fr"><b>Ce que j'en retire :</b> isoler le VLAN labo sans DHCP du routeur m'a permis de tester mes propres serveurs DHCP sur des VM sans créer de conflit avec le reste du réseau.</div>
       <div class="learn" lang="en"><b>Takeaway:</b> keeping the lab VLAN free of router DHCP let me test my own DHCP servers on VMs without conflicting with the rest of the network.</div>
+      <div style="margin-top:16px">
+    <div class="term" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="p">placide@homelab</span>:~$ <span class="c">ssh admin@R1-cisco1921</span>
+R1# <span class="c">show ip interface brief | include \.</span>
+<span class="d">Interface     IP-Address      Status  Protocol</span>
+Gi0/0.10      192.168.10.1    <span class="ok">up</span>      <span class="ok">up</span>
+Gi0/0.20      192.168.20.1    <span class="ok">up</span>      <span class="ok">up</span>
+Gi0/0.30      192.168.30.1    <span class="ok">up</span>      <span class="ok">up</span>
+R1# <span class="c">ping 192.168.10.20 source Gi0/0.20</span>
+!!!!!  <span class="ok">Success rate is 100 percent</span>
+R1# <span class="c">exit</span>
+<span class="p">placide@srv-ub-dc1</span>:~$ <span class="c">samba-tool domain info 127.0.0.1</span>
+Domain     : <span class="ok">samba.lan</span>
+DC name    : srv-ub-dc1.samba.lan
+<span class="p">placide@srv-ub-dc1</span>:~$ <span class="ok">█</span></pre>
+    </div>
+      </div>
     </article>
 
     <!-- Windows Server -->
@@ -343,9 +407,20 @@ DC name    : srv-ub-dc1.samba.lan
     </div>
   </section>
 
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="sec-title"><span class="num">03.</span><h2><span lang="fr">Galerie de projets</span><span lang="en">Project gallery</span></h2></div>
+    <div class="carousel" id="carousel">
+      <div class="slides" id="slides"></div>
+      <button class="cbtn prev" id="prev" type="button" aria-label="Précédent / Previous">‹</button>
+      <button class="cbtn next" id="next" type="button" aria-label="Suivant / Next">›</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </section>
+
   <!-- COMPÉTENCES -->
   <section id="competences">
-    <div class="sec-title"><span class="num">03.</span><h2><span lang="fr">Compétences</span><span lang="en">Skills</span></h2></div>
+    <div class="sec-title"><span class="num">04.</span><h2><span lang="fr">Compétences</span><span lang="en">Skills</span></h2></div>
     <div class="skills">
       <div class="card"><h3><span lang="fr">Réseaux</span><span lang="en">Networking</span></h3><div class="chips"><span class="chip">VLAN / 802.1Q</span><span class="chip">VLSM</span><span class="chip">Routage statique</span><span class="chip">Inter-VLAN</span><span class="chip">Cisco IOS</span><span class="chip">Packet Tracer</span><span class="chip">DHCP / DNS</span></div></div>
       <div class="card"><h3>Windows Server</h3><div class="chips"><span class="chip">AD DS</span><span class="chip">GPO</span><span class="chip">DFS</span><span class="chip">NTFS</span><span class="chip">RRAS / NAT</span><span class="chip">Server Core</span><span class="chip">RSAT</span></div></div>
@@ -358,7 +433,7 @@ DC name    : srv-ub-dc1.samba.lan
 
   <!-- PARCOURS -->
   <section id="parcours">
-    <div class="sec-title"><span class="num">04.</span><h2><span lang="fr">Parcours</span><span lang="en">Experience &amp; education</span></h2></div>
+    <div class="sec-title"><span class="num">05.</span><h2><span lang="fr">Parcours</span><span lang="en">Experience &amp; education</span></h2></div>
     <div class="timeline">
       <div class="tl">
         <div class="when"><span lang="fr">Janv. 2026 — aujourd'hui</span><span lang="en">Jan 2026 — present</span></div>
@@ -391,28 +466,64 @@ DC name    : srv-ub-dc1.samba.lan
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
-    <div class="sec-title" style="justify-content:center"><span class="num">05.</span><h2>Contact</h2></div>
+    <div class="sec-title" style="justify-content:center"><span class="num">06.</span><h2>Contact</h2></div>
     <p lang="fr">Je cherche un stage en administration de réseaux et de systèmes dans la région de Québec. Écrivez-moi : je réponds rapidement, en français ou en anglais.</p>
     <p lang="en">I am looking for a network and systems administration internship in the Québec City area. Get in touch — I reply quickly, in French or English.</p>
     <div class="clinks">
-      <a class="btn primary" data-cfg-href="email" href="dz.placide@gmail.com"><span data-cfg="email"></span></a>
-      <a class="btn ghost" data-cfg-href="linkedin" href="www.linkedin.com/in/placide-dzeugang">LinkedIn</a>
-      <a class="btn ghost" data-cfg-href="github" href="https://dzplacide.github.io">GitHub</a>
+      <a class="btn wa" data-cfg-href="whatsapp" href="#">WhatsApp</a>
+      <a class="btn primary" data-cfg-href="email" href="#"><span data-cfg="email"></span></a>
+      <a class="btn light" data-cfg-href="cv" href="#" download><span lang="fr">Télécharger mon CV</span><span lang="en">Download my CV</span></a>
+      <a class="btn ghost" data-cfg-href="linkedin" href="#">LinkedIn</a>
+      <a class="btn ghost" data-cfg-href="github" href="#">GitHub</a>
+    </div>
+
+    <div class="share">
+      <h3><span lang="fr">Partager ce portfolio</span><span lang="en">Share this portfolio</span></h3>
+      <div class="sbtns">
+        <button class="sbtn native" id="shareNative" type="button"><svg viewBox="0 0 24 24"><path d="M18 16.1c-.8 0-1.4.3-2 .8l-7.1-4.2c.1-.2.1-.5.1-.7s0-.5-.1-.7L16 7.2c.5.5 1.2.8 2 .8 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .2 0 .5.1.7L8 9.8C7.5 9.3 6.8 9 6 9c-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2-.8l7.1 4.2c-.1.2-.1.4-.1.6 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9-1.2-2.9-2.8-2.9z"/></svg><span lang="fr">Partager</span><span lang="en">Share</span></button>
+        <a class="sbtn li" data-share="linkedin" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+        <a class="sbtn fb" data-share="facebook" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.09 24 12.07z"/></svg>Facebook</a>
+        <a class="sbtn x" data-share="x" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>X</a>
+        <a class="sbtn wa2" data-share="whatsapp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm6 15.5c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1.1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 2.9 1.1 3.5.9 4.1.8.6-.1 2-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>WhatsApp</a>
+        <a class="sbtn mail" data-share="email" href="#"><svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm10 7L4 6v2l8 5 8-5V6l-8 5z"/></svg><span lang="fr">Courriel</span><span lang="en">Email</span></a>
+        <button class="sbtn copy" id="copyLink" type="button"><svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg><span lang="fr">Copier le lien</span><span lang="en">Copy link</span></button>
+      </div>
+      <div class="copied" id="copied" aria-live="polite"></div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 <span data-cfg="fullName">Placide Dzeugang</span> · Québec</div>
+  <div class="wrap">
+    © 2026 <span data-cfg="fullName">Placide Dzeugang</span> · Québec<br>
+    <span class="counter" id="counter"><span lang="fr">Visites :</span><span lang="en">Visits:</span> <img id="counterImg" alt="compteur de visites"></span>
+  </div>
 </footer>
+
+<a class="wa-float" data-cfg-href="whatsapp" href="#" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.6l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1.1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 2-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+  <span>WhatsApp</span>
+</a>
 
 <script>
 /* ====== À PERSONNALISER / EDIT HERE ====== */
 const CONFIG = {
-  fullName: "Placide Dzeugang",                             // nom affiché
-  email:    "",                                             // ton adresse courriel (vide = bouton masqué)
-  linkedin: "https://www.linkedin.com/in/placide-dzeugang/",      // URL de ton profil LinkedIn
-  github:   "https://github.com/dzplacide"                   // URL de ton profil GitHub
+  fullName: "Placide Dzeugang",
+  email:    "dz.placide@gmail.com",
+  linkedin: "https://www.linkedin.com/in/placide-dzeugang/",
+  github:   "https://github.com/dzplacide",
+  whatsapp: "15815256747",               // 1 + ton numéro WhatsApp, sans espaces
+  cv:       "CV_Placide_DZEUGANG.pdf",   // PDF déposé à côté de index.html
+  photo:    "photo.jpg",                 // ta photo, déposée à côté de index.html
+  counterId: "dzplacide.github.io",
+  siteUrl:  "https://dzplacide.github.io/",  // adresse partagée sur les réseaux sociaux      // identifiant du compteur de visites
+  // Galerie : dépose ces images à côté de index.html (ou change les noms et légendes)
+  gallery: [
+    { src: "projet1.jpg", fr: "Homelab : routeur Cisco 1921, commutateur GS308E et serveur Dell R320", en: "Homelab: Cisco 1921 router, GS308E switch and Dell R320 server" },
+    { src: "projet2.jpg", fr: "Active Directory sous Windows Server 2022 : UO, groupes et GPO", en: "Active Directory on Windows Server 2022: OUs, groups and GPOs" },
+    { src: "projet3.jpg", fr: "Contrôleur de domaine Samba AD sur Ubuntu Server", en: "Samba AD domain controller on Ubuntu Server" },
+    { src: "projet4.jpg", fr: "Réseaux virtuels et appairage dans Microsoft Azure", en: "Virtual networks and peering in Microsoft Azure" }
+  ]
 };
 /* ========================================= */
 
@@ -420,8 +531,10 @@ document.querySelectorAll('[data-cfg]').forEach(el => { el.textContent = CONFIG[
 document.querySelectorAll('[data-cfg-href]').forEach(el => {
   const k = el.dataset.cfgHref, v = CONFIG[k];
   if (!v) { el.style.display = 'none'; return; }
-  el.href = k === 'email' ? 'mailto:' + v : v;
-  if (k !== 'email') { el.target = '_blank'; el.rel = 'noopener'; }
+  if (k === 'email') { el.href = 'mailto:' + v; return; }
+  if (k === 'cv') { el.href = v; return; }
+  el.href = k === 'whatsapp' ? 'https://wa.me/' + v : v;
+  el.target = '_blank'; el.rel = 'noopener';
 });
 
 const root = document.documentElement, btn = document.getElementById('langbtn');
@@ -434,6 +547,72 @@ let saved = null;
 try { saved = localStorage.getItem('lang'); } catch(e) {}
 setLang(saved || 'fr');
 btn.addEventListener('click', () => setLang(root.dataset.lang === 'fr' ? 'en' : 'fr'));
+
+/* Photo de profil (initiales si l'image est absente) */
+const frame = document.getElementById('photoFrame'), pimg = document.getElementById('profilePhoto');
+if (CONFIG.photo) { pimg.onerror = () => frame.classList.add('noimg'); pimg.src = CONFIG.photo; } else frame.classList.add('noimg');
+
+/* Compteur de visites (service gratuit hits.sh) */
+const cimg = document.getElementById('counterImg');
+cimg.onerror = () => { document.getElementById('counter').style.display = 'none'; };
+cimg.src = 'https://hits.sh/' + CONFIG.counterId + '.svg?label=%20&color=2dd4bf&labelColor=132038';
+
+/* Galerie défilante */
+const slidesEl = document.getElementById('slides'), dotsEl = document.getElementById('dots');
+CONFIG.gallery.forEach((g, n) => {
+  const f = document.createElement('figure'); f.className = 'slide';
+  f.innerHTML = '<img alt=""><div class="ph"><b>' + String(n + 1).padStart(2, '0') + '</b><span lang="fr">Photo à venir</span><span lang="en">Photo coming soon</span></div>'
+    + '<figcaption><span lang="fr"></span><span lang="en"></span></figcaption>';
+  const im = f.querySelector('img'); im.alt = g.fr; im.onerror = () => f.classList.add('noimg'); im.src = g.src;
+  f.querySelector('figcaption [lang="fr"]').textContent = g.fr;
+  f.querySelector('figcaption [lang="en"]').textContent = g.en;
+  slidesEl.appendChild(f);
+  const d = document.createElement('button'); d.type = 'button'; d.setAttribute('aria-label', 'Photo ' + (n + 1));
+  d.onclick = () => { go(n); restart(); }; dotsEl.appendChild(d);
+});
+let cur = 0, timer = null;
+function go(n) {
+  const total = CONFIG.gallery.length; cur = (n + total) % total;
+  slidesEl.style.transform = 'translateX(-' + cur * 100 + '%)';
+  [...dotsEl.children].forEach((d, k) => d.classList.toggle('on', k === cur));
+}
+function restart() { clearInterval(timer); timer = setInterval(() => go(cur + 1), 5000); }
+document.getElementById('prev').onclick = () => { go(cur - 1); restart(); };
+document.getElementById('next').onclick = () => { go(cur + 1); restart(); };
+const car = document.getElementById('carousel');
+car.addEventListener('mouseenter', () => clearInterval(timer));
+car.addEventListener('mouseleave', restart);
+go(0); restart();
+
+/* Partage sur les réseaux sociaux */
+const shareUrl = CONFIG.siteUrl;
+const shareText = () => root.dataset.lang === 'en'
+  ? CONFIG.fullName + ' — Network & Systems Administration portfolio'
+  : 'Portfolio de ' + CONFIG.fullName + ' — Administration et sécurité des réseaux';
+function shareLinks() {
+  const u = encodeURIComponent(shareUrl), t = encodeURIComponent(shareText());
+  const map = {
+    linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + u,
+    facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+    x: 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t,
+    whatsapp: 'https://wa.me/?text=' + t + '%20' + u,
+    email: 'mailto:?subject=' + t + '&body=' + t + '%0A' + u
+  };
+  document.querySelectorAll('[data-share]').forEach(a => a.href = map[a.dataset.share]);
+}
+shareLinks();
+btn.addEventListener('click', shareLinks);
+const nat = document.getElementById('shareNative');
+if (navigator.share) {
+  nat.style.display = 'inline-flex';
+  nat.onclick = () => navigator.share({ title: document.title, text: shareText(), url: shareUrl }).catch(() => {});
+}
+document.getElementById('copyLink').onclick = async () => {
+  const out = document.getElementById('copied');
+  try { await navigator.clipboard.writeText(shareUrl);
+        out.textContent = root.dataset.lang === 'en' ? 'Link copied: ' + shareUrl : 'Lien copié : ' + shareUrl; }
+  catch (e) { out.textContent = shareUrl; }
+};
 </script>
 </body>
 </html>
