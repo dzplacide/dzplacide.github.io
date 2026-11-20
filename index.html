@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Placide Dzeugang — Portfolio | Administration et sécurité des réseaux</title>
+<meta name="description" content="Portfolio de Placide, étudiant en administration et sécurité des réseaux au Cégep Limoilou (Québec). Homelab, Windows Server, Linux, Azure, scripts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#101a2e; --card:#132038; --line:#22324f;
+    --text:#e6ecf5; --muted:#9aa8bf; --accent:#2dd4bf; --accent2:#60a5fa; --warn:#fbbf24;
+    --radius:14px; --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* bilingue */
+  html[data-lang="fr"] [lang="en"]{display:none!important}
+  html[data-lang="en"] [lang="fr"]{display:none!important}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  header.nav{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .brand{font-family:var(--mono);font-weight:600;color:var(--text)}
+  .brand b{color:var(--accent)}
+  nav.links{display:flex;gap:20px;font-size:.93rem}
+  nav.links a{color:var(--muted)}
+  nav.links a:hover{color:var(--text);text-decoration:none}
+  .langbtn{font-family:var(--mono);background:transparent;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:5px 10px;cursor:pointer;font-size:.85rem}
+  .langbtn:hover{border-color:var(--accent)}
+  @media(max-width:760px){nav.links{display:none}}
+
+  .hero{padding:80px 0 60px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
+  @media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:48px}}
+  .tag{display:inline-block;font-family:var(--mono);font-size:.8rem;color:var(--accent);border:1px solid rgba(45,212,191,.35);background:rgba(45,212,191,.08);padding:4px 10px;border-radius:999px;margin-bottom:18px}
+  h1{font-size:clamp(2rem,4.4vw,3rem);line-height:1.15;margin:0 0 14px}
+  h1 span.hl{color:var(--accent)}
+  .lead{color:var(--muted);font-size:1.1rem;margin:0 0 26px;max-width:560px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:600;font-size:.95rem}
+  .btn.primary{background:var(--accent);color:#04201c}
+  .btn.ghost{border:1px solid var(--line);color:var(--text)}
+  .btn:hover{text-decoration:none;filter:brightness(1.08)}
+
+  .term{background:#070d18;border:1px solid var(--line);border-radius:var(--radius);font-family:var(--mono);font-size:.8rem;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .term .bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);background:#0c1424}
+  .term .bar i{width:10px;height:10px;border-radius:50%;background:#334155;display:block}
+  .term pre{margin:0;padding:16px 18px;white-space:pre;overflow-x:auto;color:#cbd5e1;line-height:1.55}
+  .p{color:var(--accent)} .c{color:var(--accent2)} .d{color:#64748b} .ok{color:#4ade80}
+
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-title{display:flex;align-items:baseline;gap:12px;margin-bottom:28px}
+  .sec-title .num{font-family:var(--mono);color:var(--accent);font-size:.9rem}
+  h2{margin:0;font-size:1.7rem}
+  h3{margin:0 0 6px;font-size:1.2rem}
+
+  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}
+  @media(max-width:860px){.about{grid-template-columns:1fr}}
+  .about p{color:#cdd6e4;margin:0 0 14px}
+  .facts{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:0;list-style:none}
+  .facts li{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+  .facts li:last-child{border-bottom:0}
+  .facts .k{font-family:var(--mono);color:var(--accent);min-width:28px}
+
+  .feature{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-bottom:22px}
+  .feature .head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start;margin-bottom:10px}
+  .badge{font-family:var(--mono);font-size:.72rem;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+  .badge.live{color:var(--ok,#4ade80);border-color:rgba(74,222,128,.4)}
+  .desc{color:#cdd6e4;margin:0 0 16px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+  @media(max-width:860px){.cols{grid-template-columns:1fr}}
+  ul.pts{margin:0;padding-left:18px;color:#cdd6e4}
+  ul.pts li{margin-bottom:7px}
+  ul.pts li::marker{color:var(--accent)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .chip{font-family:var(--mono);font-size:.74rem;background:rgba(96,165,250,.1);color:#bcd4fb;border:1px solid rgba(96,165,250,.25);padding:3px 9px;border-radius:6px}
+  .learn{margin-top:16px;padding:12px 14px;border-left:3px solid var(--warn);background:rgba(251,191,36,.07);border-radius:0 8px 8px 0;font-size:.92rem;color:#e8dcb8}
+  .learn b{color:var(--warn)}
+  .diagram{background:#0a1222;border:1px solid var(--line);border-radius:12px;padding:10px}
+  .diagram svg{width:100%;height:auto;display:block}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:860px){.grid3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .card .ico{font-family:var(--mono);color:var(--accent);font-size:.8rem;margin-bottom:8px}
+
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:860px){.skills{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.skills{grid-template-columns:1fr}}
+  .skills .card h3{font-size:1rem;margin-bottom:12px}
+
+  .timeline{position:relative;margin-left:8px;padding-left:28px;border-left:2px solid var(--line)}
+  .tl{position:relative;margin-bottom:28px}
+  .tl::before{content:"";position:absolute;left:-36px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+  .tl .when{font-family:var(--mono);font-size:.8rem;color:var(--accent)}
+  .tl h3{font-size:1.08rem;margin:2px 0}
+  .tl .org{color:var(--muted);font-size:.93rem;margin-bottom:6px}
+  .tl p{margin:0;color:#cdd6e4;font-size:.95rem}
+
+  .contact{text-align:center}
+  .contact p{color:var(--muted);max-width:620px;margin:0 auto 26px}
+  .clinks{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+  .clinks .btn{font-family:var(--mono);font-weight:500;font-size:.88rem}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:#64748b;font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand"><b>~/</b>placide</div>
+    <nav class="links">
+      <a href="#a-propos"><span lang="fr">À propos</span><span lang="en">About</span></a>
+      <a href="#projets"><span lang="fr">Projets</span><span lang="en">Projects</span></a>
+      <a href="#competences"><span lang="fr">Compétences</span><span lang="en">Skills</span></a>
+      <a href="#parcours"><span lang="fr">Parcours</span><span lang="en">Experience</span></a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="langbtn" id="langbtn" type="button" aria-label="Changer de langue / Switch language">EN</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="tag">
+        <span lang="fr">● Disponible pour un stage — Québec</span>
+        <span lang="en">● Available for an internship — Québec City</span>
+      </div>
+      <h1>
+        <span data-cfg="fullName">Placide Dzeugang</span><br>
+        <span class="hl" lang="fr">Administration et sécurité des réseaux</span>
+        <span class="hl" lang="en">Network &amp; Systems Administration</span>
+      </h1>
+      <p class="lead" lang="fr">Ancien enseignant en informatique (12 ans), je me spécialise maintenant en administration de serveurs Windows et Linux, en réseaux et en infonuagique Azure. J'apprends en construisant : mon homelab tourne 24/7 à la maison.</p>
+      <p class="lead" lang="en">Former computer science teacher (12 years), now specializing in Windows and Linux server administration, networking and Azure cloud. I learn by building: my homelab runs 24/7 at home.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projets"><span lang="fr">Voir mes projets</span><span lang="en">See my projects</span></a>
+        <a class="btn ghost" href="#contact"><span lang="fr">Me contacter</span><span lang="en">Contact me</span></a>
+      </div>
+    </div>
+    <div class="term" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="p">placide@homelab</span>:~$ <span class="c">ssh admin@R1-cisco1921</span>
+R1# <span class="c">show ip interface brief | include \.</span>
+<span class="d">Interface     IP-Address      Status  Protocol</span>
+Gi0/0.10      192.168.10.1    <span class="ok">up</span>      <span class="ok">up</span>
+Gi0/0.20      192.168.20.1    <span class="ok">up</span>      <span class="ok">up</span>
+Gi0/0.30      192.168.30.1    <span class="ok">up</span>      <span class="ok">up</span>
+R1# <span class="c">ping 192.168.10.20 source Gi0/0.20</span>
+!!!!!  <span class="ok">Success rate is 100 percent</span>
+R1# <span class="c">exit</span>
+<span class="p">placide@srv-ub-dc1</span>:~$ <span class="c">samba-tool domain info 127.0.0.1</span>
+Domain     : <span class="ok">samba.lan</span>
+DC name    : srv-ub-dc1.samba.lan
+<span class="p">placide@srv-ub-dc1</span>:~$ <span class="ok">█</span></pre>
+    </div>
+  </div>
+
+  <!-- À PROPOS -->
+  <section id="a-propos">
+    <div class="sec-title"><span class="num">01.</span><h2><span lang="fr">À propos</span><span lang="en">About me</span></h2></div>
+    <div class="about">
+      <div>
+        <p lang="fr">Pendant plus de dix ans, j'ai enseigné l'informatique et occupé le poste de chef de travaux dans des lycées techniques au Cameroun. J'y ai géré des laboratoires, des équipements et des équipes — et j'ai appris à expliquer clairement des notions techniques.</p>
+        <p lang="en">For more than ten years I taught computer science and served as head of technical studies (chef de travaux) in technical high schools in Cameroon. I managed labs, equipment and teams — and learned to explain technical concepts clearly.</p>
+        <p lang="fr">Établi à Québec, je poursuis depuis janvier 2026 l'AEC <strong>Administration et sécurité des réseaux informatiques</strong> au Cégep Limoilou. Je cherche un <strong>stage</strong> où je pourrai mettre en pratique l'administration de serveurs, le soutien technique et la sécurité des réseaux.</p>
+        <p lang="en">Now based in Québec City, I have been enrolled since January 2026 in the <strong>Network Administration and Security</strong> AEC program at Cégep Limoilou. I am looking for an <strong>internship</strong> in server administration, IT support and network security.</p>
+        <p lang="fr">Ce qui me distingue : la rigueur de l'enseignant, la patience du dépannage méthodique et la fiabilité acquise sur le terrain, en entrepôt comme en classe.</p>
+        <p lang="en">What sets me apart: a teacher's rigour, the patience of methodical troubleshooting, and on-the-job reliability — in the warehouse as in the classroom.</p>
+      </div>
+      <ul class="facts">
+        <li><span class="k">📍</span><span>Québec, QC</span></li>
+        <li><span class="k">🎓</span><span lang="fr">AEC Admin. et sécurité des réseaux — Cégep Limoilou (2026)</span><span lang="en">AEC Network Admin. &amp; Security — Cégep Limoilou (2026)</span></li>
+        <li><span class="k">🎓</span><span lang="fr">Licence en informatique — Université de Yaoundé I</span><span lang="en">Bachelor's in Computer Science — University of Yaoundé I</span></li>
+        <li><span class="k">🗣</span><span lang="fr">Français et anglais</span><span lang="en">French and English</span></li>
+        <li><span class="k">🤝</span><span lang="fr">Bénévole — Mieux-Être des Immigrants</span><span lang="en">Volunteer — Mieux-Être des Immigrants</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="sec-title"><span class="num">02.</span><h2><span lang="fr">Projets</span><span lang="en">Projects</span></h2></div>
+
+    <!-- Homelab -->
+    <article class="feature">
+      <div class="head">
+        <div>
+          <h3>Homelab — <span lang="fr">infrastructure réseau personnelle</span><span lang="en">personal network infrastructure</span></h3>
+        </div>
+        <span class="badge live"><span lang="fr">● en production à la maison</span><span lang="en">● running at home</span></span>
+      </div>
+      <p class="desc" lang="fr">Un vrai réseau d'entreprise miniature, monté avec du matériel physique, que j'utilise pour pratiquer et pour réaliser mes travaux de cours en conditions réelles.</p>
+      <p class="desc" lang="en">A real small-business network built on physical hardware, which I use to practise and to complete my coursework in real conditions.</p>
+      <div class="cols">
+        <div>
+          <ul class="pts" lang="fr">
+            <li>Routeur <strong>Cisco 1921</strong> : segmentation en 3 VLANs (serveurs, clients, labo), routage inter-VLAN, DHCP pour les clients, accès d'administration en <strong>SSH</strong></li>
+            <li>Commutateur administrable Netgear GS308E (ports trunk/accès 802.1Q)</li>
+            <li>Serveur <strong>Dell PowerEdge R320</strong> en <strong>RAID 5</strong> (≈ 2,5 To), hyperviseur <strong>Hyper-V</strong></li>
+            <li>Contrôleur de domaine <strong>Samba AD</strong> sur Ubuntu Server (domaine <code>samba.lan</code>), postes Windows 11 joints au domaine et gérés avec RSAT</li>
+            <li>Imprimante réseau à IP fixe et serveur d'impression <strong>CUPS</strong> (en cours)</li>
+          </ul>
+          <ul class="pts" lang="en">
+            <li><strong>Cisco 1921</strong> router: 3 VLANs (servers, clients, lab), inter-VLAN routing, DHCP for clients, <strong>SSH</strong> management access</li>
+            <li>Netgear GS308E managed switch (802.1Q trunk/access ports)</li>
+            <li><strong>Dell PowerEdge R320</strong> server with <strong>RAID 5</strong> (≈ 2.5 TB) running <strong>Hyper-V</strong></li>
+            <li><strong>Samba AD</strong> domain controller on Ubuntu Server (<code>samba.lan</code>), Windows 11 clients joined to the domain and managed with RSAT</li>
+            <li>Network printer on a static IP and a <strong>CUPS</strong> print server (in progress)</li>
+          </ul>
+          <div class="chips"><span class="chip">Cisco IOS</span><span class="chip">VLAN 802.1Q</span><span class="chip">Hyper-V</span><span class="chip">RAID 5</span><span class="chip">Ubuntu Server</span><span class="chip">Samba AD</span><span class="chip">SSH</span><span class="chip">CUPS</span></div>
+        </div>
+        <div class="diagram">
+          <svg viewBox="0 0 420 330" role="img" aria-label="Schéma du homelab">
+            <defs><style>
+              .bx{fill:#132038;stroke:#2dd4bf;stroke-width:1.3}
+              .bx2{fill:#132038;stroke:#60a5fa;stroke-width:1.3}
+              .ln{stroke:#3b4d6e;stroke-width:1.6;fill:none}
+              .t{fill:#e6ecf5;font:600 11px 'IBM Plex Sans',sans-serif}
+              .s{fill:#9aa8bf;font:10px 'JetBrains Mono',monospace}
+              .v{font:600 9.5px 'JetBrains Mono',monospace}
+            </style></defs>
+            <!-- internet -->
+            <rect x="160" y="8" width="100" height="28" rx="14" fill="none" stroke="#64748b" stroke-dasharray="4 3"/>
+            <text x="210" y="26" text-anchor="middle" class="s">Internet</text>
+            <path class="ln" d="M210 36 V58"/>
+            <!-- router -->
+            <rect class="bx" x="135" y="58" width="150" height="40" rx="8"/>
+            <text x="210" y="75" text-anchor="middle" class="t">Cisco 1921</text>
+            <text x="210" y="90" text-anchor="middle" class="s">routage inter-VLAN · SSH</text>
+            <path class="ln" d="M210 98 V122"/>
+            <text x="216" y="114" class="s">trunk</text>
+            <!-- switch -->
+            <rect class="bx" x="135" y="122" width="150" height="38" rx="8"/>
+            <text x="210" y="139" text-anchor="middle" class="t">Netgear GS308E</text>
+            <text x="210" y="153" text-anchor="middle" class="s">VLAN 10 · 20 · 30</text>
+            <!-- links -->
+            <path class="ln" d="M160 160 V185 H75 V200"/>
+            <path class="ln" d="M210 160 V200"/>
+            <path class="ln" d="M260 160 V185 H345 V200"/>
+            <!-- server -->
+            <rect class="bx2" x="10" y="200" width="130" height="118" rx="8"/>
+            <text x="75" y="217" text-anchor="middle" class="t">Dell R320 · Hyper-V</text>
+            <text x="75" y="231" text-anchor="middle" class="s">RAID 5</text>
+            <rect x="20" y="240" width="110" height="20" rx="4" fill="#0a1222" stroke="#22324f"/>
+            <text x="75" y="254" text-anchor="middle" class="s" style="font-size:9px">DC Samba AD</text>
+            <rect x="20" y="264" width="110" height="20" rx="4" fill="#0a1222" stroke="#22324f"/>
+            <text x="75" y="278" text-anchor="middle" class="s" style="font-size:9px">client Ubuntu · CUPS</text>
+            <rect x="20" y="288" width="110" height="20" rx="4" fill="#0a1222" stroke="#22324f"/>
+            <text x="75" y="302" text-anchor="middle" class="s" style="font-size:9px">DC Windows (labo)</text>
+            <text x="75" y="196" text-anchor="middle" class="v" fill="#2dd4bf">VLAN 10</text>
+            <!-- clients -->
+            <rect class="bx2" x="150" y="200" width="120" height="60" rx="8"/>
+            <text x="210" y="220" text-anchor="middle" class="t">PC Windows 11</text>
+            <text x="210" y="235" text-anchor="middle" class="s">joints à samba.lan</text>
+            <text x="210" y="249" text-anchor="middle" class="s">RSAT</text>
+            <text x="210" y="196" text-anchor="middle" class="v" fill="#60a5fa">VLAN 10 / 20</text>
+            <!-- printer / lab -->
+            <rect class="bx2" x="280" y="200" width="130" height="60" rx="8"/>
+            <text x="345" y="217" text-anchor="middle" class="t">TP-Link TL-SG105</text>
+            <text x="345" y="232" text-anchor="middle" class="s">imprimante réseau</text>
+            <text x="345" y="246" text-anchor="middle" class="s">IP fixe</text>
+            <text x="345" y="196" text-anchor="middle" class="v" fill="#fbbf24">VLAN 20</text>
+            <rect x="280" y="272" width="130" height="36" rx="8" fill="none" stroke="#fbbf24" stroke-dasharray="4 3"/>
+            <text x="345" y="288" text-anchor="middle" class="s">VLAN 30 · labo</text>
+            <text x="345" y="301" text-anchor="middle" class="s">DHCP sur VM</text>
+          </svg>
+        </div>
+      </div>
+      <div class="learn" lang="fr"><b>Ce que j'en retire :</b> isoler le VLAN labo sans DHCP du routeur m'a permis de tester mes propres serveurs DHCP sur des VM sans créer de conflit avec le reste du réseau.</div>
+      <div class="learn" lang="en"><b>Takeaway:</b> keeping the lab VLAN free of router DHCP let me test my own DHCP servers on VMs without conflicting with the rest of the network.</div>
+    </article>
+
+    <!-- Windows Server -->
+    <article class="feature">
+      <div class="head">
+        <h3>Windows Server 2022 — <span lang="fr">infrastructure d'un hôpital simulé</span><span lang="en">simulated hospital infrastructure</span></h3>
+        <span class="badge"><span lang="fr">Travail pratique · Cégep Limoilou</span><span lang="en">Lab project · Cégep Limoilou</span></span>
+      </div>
+      <p class="desc" lang="fr">Déploiement complet d'un domaine Active Directory pour un hôpital fictif, sur deux serveurs (un avec interface graphique, un en Server Core), dans un environnement virtualisé géré par System Center VMM.</p>
+      <p class="desc" lang="en">Full Active Directory deployment for a fictional hospital on two servers (one with the desktop experience, one Server Core) in a virtual environment managed with System Center VMM.</p>
+      <div class="cols">
+        <ul class="pts" lang="fr">
+          <li>Deux contrôleurs de domaine, réplication AD vérifiée, transfert des rôles <strong>FSMO</strong></li>
+          <li>DHCP, DNS, partage de connexion (ICS) / NAT avec RRAS</li>
+          <li>UO, groupes et utilisateurs (stratégie <strong>AGDLP</strong>), création en masse par <strong>PowerShell + CSV</strong></li>
+          <li><strong>GPO</strong> : déploiement de logiciel (MSI), mappage de lecteurs</li>
+        </ul>
+        <ul class="pts" lang="en">
+          <li>Two domain controllers, verified AD replication, <strong>FSMO</strong> role transfer</li>
+          <li>DHCP, DNS, Internet Connection Sharing / NAT with RRAS</li>
+          <li>OUs, groups and users (<strong>AGDLP</strong>), bulk creation with <strong>PowerShell + CSV</strong></li>
+          <li><strong>GPOs</strong>: software deployment (MSI), drive mapping</li>
+        </ul>
+        <ul class="pts" lang="fr">
+          <li>Permissions <strong>NTFS</strong>, dossiers de base, quotas, profils itinérants</li>
+          <li>Espace de noms et réplication <strong>DFS</strong> sur 2 serveurs</li>
+          <li>RAID 5, sauvegardes planifiées</li>
+          <li>Serveur web + MySQL (Laragon) et serveur FTP (FileZilla)</li>
+        </ul>
+        <ul class="pts" lang="en">
+          <li><strong>NTFS</strong> permissions, home folders, quotas, roaming profiles</li>
+          <li><strong>DFS</strong> namespace and replication across 2 servers</li>
+          <li>RAID 5, scheduled backups</li>
+          <li>Web + MySQL server (Laragon) and FTP server (FileZilla)</li>
+        </ul>
+      </div>
+      <div class="chips"><span class="chip">Active Directory</span><span class="chip">Server Core</span><span class="chip">GPO</span><span class="chip">DFS-R</span><span class="chip">PowerShell</span><span class="chip">DHCP / DNS</span><span class="chip">SCVMM</span></div>
+      <div class="learn" lang="fr"><b>Dépannage marquant :</b> la promotion du second contrôleur de domaine échouait avec une « erreur inconnue ». En isolant les causes une à une, j'ai trouvé qu'il fallait redémarrer après l'installation du rôle AD DS et fournir des identifiants du domaine (<code>DOMAINE\Administrateur</code>) plutôt qu'un compte local. J'ai aussi diagnostiqué un rollback USN et une mauvaise configuration DNS lors d'un autre labo.</div>
+      <div class="learn" lang="en"><b>Notable troubleshooting:</b> promoting the second domain controller kept failing with an "unknown error". Ruling out causes one by one, I found it needed a reboot after installing the AD DS role and domain-qualified credentials (<code>DOMAIN\Administrator</code>) instead of a local account. In another lab I diagnosed a USN rollback and a DNS misconfiguration.</div>
+    </article>
+
+    <div class="grid3">
+      <div class="card">
+        <div class="ico">// linux</div>
+        <h3>Ubuntu Server &amp; Samba AD</h3>
+        <p lang="fr" class="desc">Contrôleur de domaine Samba AD, script qui crée utilisateurs et groupes à partir d'un CSV, RAID 1 avec <code>mdadm</code>, quotas, partages Samba, DNS avec <code>samba-tool</code>, jonction d'un client Ubuntu au domaine, DHCP <code>isc-dhcp-server</code>.</p>
+        <p lang="en" class="desc">Samba AD domain controller, a script creating users and groups from CSV, RAID 1 with <code>mdadm</code>, quotas, Samba shares, DNS with <code>samba-tool</code>, joining an Ubuntu client to the domain, <code>isc-dhcp-server</code> DHCP.</p>
+        <div class="chips"><span class="chip">Bash</span><span class="chip">Samba</span><span class="chip">mdadm</span><span class="chip">DHCP</span></div>
+      </div>
+      <div class="card">
+        <div class="ico">// cloud</div>
+        <h3>Microsoft Azure</h3>
+        <p lang="fr" class="desc">Réseaux virtuels et sous-réseaux, zones DNS privées, appairage (peering) de VNet et routage, App Service relié à un compte de stockage privé — déployés dans mon abonnement Azure for Students.</p>
+        <p lang="en" class="desc">Virtual networks and subnets, private DNS zones, VNet peering and routing, App Service connected to private storage — deployed in my Azure for Students subscription.</p>
+        <div class="chips"><span class="chip">VNet</span><span class="chip">Private DNS</span><span class="chip">Peering</span><span class="chip">App Service</span></div>
+      </div>
+      <div class="card">
+        <div class="ico">// code</div>
+        <h3>Python &amp; SQL</h3>
+        <p lang="fr" class="desc">Application Tkinter qui analyse un fichier CSV de sentiers, module de validation avec exceptions personnalisées et tests unitaires, scripts d'automatisation. Modélisation de bases PostgreSQL (diagrammes E-R, jointures, requêtes avancées).</p>
+        <p lang="en" class="desc">Tkinter app analysing a trails CSV file, validation module with custom exceptions and unit tests, automation scripts. PostgreSQL database design (ER diagrams, joins, advanced queries).</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">unittest</span><span class="chip">Tkinter</span><span class="chip">PostgreSQL</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="competences">
+    <div class="sec-title"><span class="num">03.</span><h2><span lang="fr">Compétences</span><span lang="en">Skills</span></h2></div>
+    <div class="skills">
+      <div class="card"><h3><span lang="fr">Réseaux</span><span lang="en">Networking</span></h3><div class="chips"><span class="chip">VLAN / 802.1Q</span><span class="chip">VLSM</span><span class="chip">Routage statique</span><span class="chip">Inter-VLAN</span><span class="chip">Cisco IOS</span><span class="chip">Packet Tracer</span><span class="chip">DHCP / DNS</span></div></div>
+      <div class="card"><h3>Windows Server</h3><div class="chips"><span class="chip">AD DS</span><span class="chip">GPO</span><span class="chip">DFS</span><span class="chip">NTFS</span><span class="chip">RRAS / NAT</span><span class="chip">Server Core</span><span class="chip">RSAT</span></div></div>
+      <div class="card"><h3>Linux</h3><div class="chips"><span class="chip">Ubuntu Server</span><span class="chip">Samba AD</span><span class="chip">SSH</span><span class="chip">CUPS</span><span class="chip">mdadm / RAID</span><span class="chip">cron</span></div></div>
+      <div class="card"><h3><span lang="fr">Virtualisation &amp; cloud</span><span lang="en">Virtualization &amp; cloud</span></h3><div class="chips"><span class="chip">Hyper-V</span><span class="chip">SCVMM</span><span class="chip">Azure VNet</span><span class="chip">Azure App Service</span><span class="chip">Azure Storage</span></div></div>
+      <div class="card"><h3><span lang="fr">Scripts &amp; données</span><span lang="en">Scripting &amp; data</span></h3><div class="chips"><span class="chip">PowerShell</span><span class="chip">Bash</span><span class="chip">Python</span><span class="chip">SQL / PostgreSQL</span><span class="chip">SQLite</span></div></div>
+      <div class="card"><h3><span lang="fr">Sécurité</span><span lang="en">Security</span></h3><div class="chips"><span class="chip"><span lang="fr">Triade CIA</span><span lang="en">CIA triad</span></span><span class="chip"><span lang="fr">Analyse de risques TI</span><span lang="en">IT risk analysis</span></span><span class="chip"><span lang="fr">Segmentation réseau</span><span lang="en">Network segmentation</span></span><span class="chip"><span lang="fr">Moindre privilège</span><span lang="en">Least privilege</span></span></div></div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section id="parcours">
+    <div class="sec-title"><span class="num">04.</span><h2><span lang="fr">Parcours</span><span lang="en">Experience &amp; education</span></h2></div>
+    <div class="timeline">
+      <div class="tl">
+        <div class="when"><span lang="fr">Janv. 2026 — aujourd'hui</span><span lang="en">Jan 2026 — present</span></div>
+        <h3><span lang="fr">AEC Administration et sécurité des réseaux informatiques</span><span lang="en">AEC Computer Network Administration and Security</span></h3>
+        <div class="org">Cégep Limoilou, Québec</div>
+        <p lang="fr">Serveurs Windows et Linux, architecture réseau, sécurité informatique, infonuagique Azure, Python, bases de données.</p>
+        <p lang="en">Windows and Linux servers, network architecture, information security, Azure cloud, Python, databases.</p>
+      </div>
+      <div class="tl">
+        <div class="when"><span lang="fr">Nov. 2025 — aujourd'hui</span><span lang="en">Nov 2025 — present</span></div>
+        <h3><span lang="fr">Commis d'entrepôt</span><span lang="en">Warehouse clerk</span></h3>
+        <div class="org">Costco, Québec</div>
+        <p lang="fr">Travail d'équipe, rigueur et fiabilité dans un environnement à haut volume, en parallèle des études.</p>
+        <p lang="en">Teamwork, rigour and reliability in a high-volume environment, alongside full-time studies.</p>
+      </div>
+      <div class="tl">
+        <div class="when">2013 — 2025</div>
+        <h3><span lang="fr">Enseignant en informatique et chef de travaux</span><span lang="en">Computer Science Teacher &amp; Head of Technical Studies</span></h3>
+        <div class="org"><span lang="fr">Lycées techniques, Cameroun</span><span lang="en">Technical high schools, Cameroon</span></div>
+        <p lang="fr">Enseignement de l'informatique, gestion des laboratoires et du matériel, coordination des travaux pratiques et encadrement d'équipes.</p>
+        <p lang="en">Taught computer science, managed computer labs and equipment, coordinated practical work and supervised staff.</p>
+      </div>
+      <div class="tl">
+        <div class="when"><span lang="fr">Diplôme</span><span lang="en">Degree</span></div>
+        <h3><span lang="fr">Licence en informatique</span><span lang="en">Bachelor's degree in Computer Science</span></h3>
+        <div class="org"><span lang="fr">Université de Yaoundé I, Cameroun</span><span lang="en">University of Yaoundé I, Cameroon</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="sec-title" style="justify-content:center"><span class="num">05.</span><h2>Contact</h2></div>
+    <p lang="fr">Je cherche un stage en administration de réseaux et de systèmes dans la région de Québec. Écrivez-moi : je réponds rapidement, en français ou en anglais.</p>
+    <p lang="en">I am looking for a network and systems administration internship in the Québec City area. Get in touch — I reply quickly, in French or English.</p>
+    <div class="clinks">
+      <a class="btn primary" data-cfg-href="email" href="dz.placide@gmail.com"><span data-cfg="email"></span></a>
+      <a class="btn ghost" data-cfg-href="linkedin" href="www.linkedin.com/in/placide-dzeugang">LinkedIn</a>
+      <a class="btn ghost" data-cfg-href="github" href="https://dzplacide.github.io">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 <span data-cfg="fullName">Placide Dzeugang</span> · Québec</div>
+</footer>
+
+<script>
+/* ====== À PERSONNALISER / EDIT HERE ====== */
+const CONFIG = {
+  fullName: "Placide Dzeugang",                             // nom affiché
+  email:    "",                                             // ton adresse courriel (vide = bouton masqué)
+  linkedin: "https://www.linkedin.com/in/placide-dzeugang/",      // URL de ton profil LinkedIn
+  github:   "https://github.com/dzplacide"                   // URL de ton profil GitHub
+};
+/* ========================================= */
+
+document.querySelectorAll('[data-cfg]').forEach(el => { el.textContent = CONFIG[el.dataset.cfg] || ''; });
+document.querySelectorAll('[data-cfg-href]').forEach(el => {
+  const k = el.dataset.cfgHref, v = CONFIG[k];
+  if (!v) { el.style.display = 'none'; return; }
+  el.href = k === 'email' ? 'mailto:' + v : v;
+  if (k !== 'email') { el.target = '_blank'; el.rel = 'noopener'; }
+});
+
+const root = document.documentElement, btn = document.getElementById('langbtn');
+function setLang(l){
+  root.dataset.lang = l; root.lang = l;
+  btn.textContent = l === 'fr' ? 'EN' : 'FR';
+  try { localStorage.setItem('lang', l); } catch(e) {}
+}
+let saved = null;
+try { saved = localStorage.getItem('lang'); } catch(e) {}
+setLang(saved || 'fr');
+btn.addEventListener('click', () => setLang(root.dataset.lang === 'fr' ? 'en' : 'fr'));
+</script>
+</body>
+</html>
