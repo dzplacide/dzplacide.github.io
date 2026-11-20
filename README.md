@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/35127435/README.md)
 <!-- README de profil GitHub — à placer dans le dépôt dzplacide/dzplacide -->
 <!-- Ajoute ton courriel sur la ligne Contact si tu veux -->
 
@@ -18,7 +17,7 @@
 | --- | --- |
 | Windows Server | Active Directory, GPO, DFS, DHCP/DNS, Server Core, RSAT |
 | Linux | Ubuntu Server, Samba AD, mdadm RAID, CUPS, SSH |
-| Réseau · Networking | Cisco IOS, VLAN 802.1Q, inter-VLAN routing, VLSM |
+| Réseau · Networking | Cisco IOS, VLAN 802.1Q, DTP, STP, EtherChannel, HSRP, RIP, inter-VLAN routing, VLSM, IPv4/IPv6 |
 | Virtualisation & cloud | Hyper-V, SCVMM, Microsoft Azure (VNet, peering, private DNS, App Service) |
 | Scripts | PowerShell, Bash, Python, SQL / PostgreSQL |
 
