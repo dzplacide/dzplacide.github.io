@@ -148,6 +148,11 @@
   .btn.wa{background:#25D366;color:#fff}
   .counter{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
   .counter img{height:20px;display:block}
+  .stats{display:none;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px auto 4px}
+  .stats.on{display:flex}
+  .stat{min-width:104px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .stat b{display:block;font-family:var(--mono);font-size:1.15rem;color:var(--accent)}
+  .stat small{color:var(--muted);font-size:.75rem}
   .share{margin-top:34px;padding-top:26px;border-top:1px dashed var(--line)}
   .share h3{font-size:1rem;color:var(--muted);font-weight:500;margin-bottom:14px}
   .sbtns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
@@ -341,6 +346,43 @@ DC name    : srv-ub-dc1.samba.lan
       </div>
     </article>
 
+    <!-- Architecture réseau -->
+    <article class="feature">
+      <div class="head">
+        <h3><span lang="fr">Architecture réseau — infrastructure Cisco commutée et routée</span><span lang="en">Network architecture — switched and routed Cisco infrastructure</span></h3>
+        <span class="badge"><span lang="fr">Architecture réseau I à III · Packet Tracer</span><span lang="en">Network Architecture I–III · Packet Tracer</span></span>
+      </div>
+      <p class="desc" lang="fr">Conception et configuration de réseaux d'entreprise complets : du plan d'adressage jusqu'à la redondance des liens et des passerelles, sur routeurs et commutateurs Cisco.</p>
+      <p class="desc" lang="en">Design and configuration of complete enterprise networks, from the addressing plan to link and gateway redundancy, on Cisco routers and switches.</p>
+      <div class="cols">
+        <ul class="pts" lang="fr">
+          <li>Plans d'adressage <strong>IPv4 avec VLSM</strong> et adressage <strong>IPv6</strong></li>
+          <li>Configuration de base et sécurisation des <strong>routeurs et commutateurs</strong> Cisco (IOS)</li>
+          <li><strong>VLAN</strong>, liens trunk 802.1Q, négociation <strong>DTP</strong> et routage inter-VLAN</li>
+          <li>Routage statique et dynamique avec <strong>RIP</strong></li>
+        </ul>
+        <ul class="pts" lang="en">
+          <li><strong>IPv4 addressing plans with VLSM</strong> and <strong>IPv6</strong> addressing</li>
+          <li>Basic configuration and hardening of Cisco <strong>routers and switches</strong> (IOS)</li>
+          <li><strong>VLANs</strong>, 802.1Q trunks, <strong>DTP</strong> negotiation and inter-VLAN routing</li>
+          <li>Static and dynamic routing with <strong>RIP</strong></li>
+        </ul>
+        <ul class="pts" lang="fr">
+          <li>Prévention des boucles avec <strong>STP</strong></li>
+          <li>Agrégation de liens avec <strong>EtherChannel</strong></li>
+          <li>Redondance de passerelle avec <strong>HSRP</strong></li>
+          <li>Services <strong>DHCP</strong> et <strong>DNS</strong> pour les postes clients</li>
+        </ul>
+        <ul class="pts" lang="en">
+          <li>Loop prevention with <strong>STP</strong></li>
+          <li>Link aggregation with <strong>EtherChannel</strong></li>
+          <li>Gateway redundancy with <strong>HSRP</strong></li>
+          <li><strong>DHCP</strong> and <strong>DNS</strong> services for client hosts</li>
+        </ul>
+      </div>
+      <div class="chips"><span class="chip">Cisco IOS</span><span class="chip">VLSM</span><span class="chip">IPv4 / IPv6</span><span class="chip">VLAN</span><span class="chip">DTP</span><span class="chip">STP</span><span class="chip">EtherChannel</span><span class="chip">RIP</span><span class="chip">HSRP</span><span class="chip">DHCP / DNS</span><span class="chip">Packet Tracer</span></div>
+    </article>
+
     <!-- Windows Server -->
     <article class="feature">
       <div class="head">
@@ -418,7 +460,7 @@ DC name    : srv-ub-dc1.samba.lan
   <section id="competences">
     <div class="sec-title"><span class="num">04.</span><h2><span lang="fr">Compétences</span><span lang="en">Skills</span></h2></div>
     <div class="skills">
-      <div class="card"><h3><span lang="fr">Réseaux</span><span lang="en">Networking</span></h3><div class="chips"><span class="chip">VLAN / 802.1Q</span><span class="chip">VLSM</span><span class="chip">Routage statique</span><span class="chip">Inter-VLAN</span><span class="chip">Cisco IOS</span><span class="chip">Packet Tracer</span><span class="chip">DHCP / DNS</span></div></div>
+      <div class="card"><h3><span lang="fr">Réseaux</span><span lang="en">Networking</span></h3><div class="chips"><span class="chip">IPv4 / IPv6</span><span class="chip">VLSM</span><span class="chip">VLAN / 802.1Q</span><span class="chip">DTP</span><span class="chip">STP</span><span class="chip">EtherChannel</span><span class="chip">Inter-VLAN</span><span class="chip"><span lang="fr">Routage statique</span><span lang="en">Static routing</span></span><span class="chip">RIP</span><span class="chip">HSRP</span><span class="chip">DHCP / DNS</span><span class="chip">Cisco IOS</span><span class="chip">Packet Tracer</span></div></div>
       <div class="card"><h3>Windows Server</h3><div class="chips"><span class="chip">AD DS</span><span class="chip">GPO</span><span class="chip">DFS</span><span class="chip">NTFS</span><span class="chip">RRAS / NAT</span><span class="chip">Server Core</span><span class="chip">RSAT</span></div></div>
       <div class="card"><h3>Linux</h3><div class="chips"><span class="chip">Ubuntu Server</span><span class="chip">Samba AD</span><span class="chip">SSH</span><span class="chip">CUPS</span><span class="chip">mdadm / RAID</span><span class="chip">cron</span></div></div>
       <div class="card"><h3><span lang="fr">Virtualisation &amp; cloud</span><span lang="en">Virtualization &amp; cloud</span></h3><div class="chips"><span class="chip">Hyper-V</span><span class="chip">SCVMM</span><span class="chip">Azure VNet</span><span class="chip">Azure App Service</span><span class="chip">Azure Storage</span></div></div>
@@ -492,6 +534,12 @@ DC name    : srv-ub-dc1.samba.lan
 <footer>
   <div class="wrap">
     © 2026 <span data-cfg="fullName">Placide Dzeugang</span> · Québec<br>
+    <div class="stats" id="stats" aria-label="Visites / Visits">
+      <div class="stat"><b data-period="today">–</b><small><span lang="fr">Aujourd'hui</span><span lang="en">Today</span></small></div>
+      <div class="stat"><b data-period="week">–</b><small><span lang="fr">7 derniers jours</span><span lang="en">Last 7 days</span></small></div>
+      <div class="stat"><b data-period="month">–</b><small><span lang="fr">30 derniers jours</span><span lang="en">Last 30 days</span></small></div>
+      <div class="stat"><b data-period="total">–</b><small>Total</small></div>
+    </div>
     <span class="counter" id="counter"><span lang="fr">Visites :</span><span lang="en">Visits:</span> <img id="counterImg" alt="compteur de visites"></span>
   </div>
 </footer>
@@ -511,8 +559,9 @@ const CONFIG = {
   whatsapp: "15815256747",               // 1 + ton numéro WhatsApp, sans espaces
   cv:       "CV_Placide_DZEUGANG.pdf",   // PDF déposé à côté de index.html
   photo:    "photo.jpg",                 // ta photo, déposée à côté de index.html
-  counterId: "dzplacide.github.io",
-  siteUrl:  "https://dzplacide.github.io/",  // adresse partagée sur les réseaux sociaux      // identifiant du compteur de visites
+  siteUrl:  "https://dzplacide.github.io/", // adresse partagée sur les réseaux sociaux
+  goatcounter: "dzplacide",              // ton code GoatCounter (dzplacide.goatcounter.com) ; "" pour désactiver
+  counterId: "dzplacide.github.io",      // compteur simple de secours (hits.sh)
   // Galerie : dépose ces images à côté de index.html (ou change les noms et légendes)
   gallery: [
     { src: "projet1.jpg", fr: "Homelab : routeur Cisco 1921, commutateur GS308E et serveur Dell R320", en: "Homelab: Cisco 1921 router, GS308E switch and Dell R320 server" },
@@ -548,10 +597,39 @@ btn.addEventListener('click', () => setLang(root.dataset.lang === 'fr' ? 'en' : 
 const frame = document.getElementById('photoFrame'), pimg = document.getElementById('profilePhoto');
 if (CONFIG.photo) { pimg.onerror = () => frame.classList.add('noimg'); pimg.src = CONFIG.photo; } else frame.classList.add('noimg');
 
-/* Compteur de visites (service gratuit hits.sh) */
-const cimg = document.getElementById('counterImg');
-cimg.onerror = () => { document.getElementById('counter').style.display = 'none'; };
-cimg.src = 'https://hits.sh/' + CONFIG.counterId + '.svg?label=%20&color=2dd4bf&labelColor=132038';
+/* Compteur de visites : GoatCounter (jour / semaine / mois / total), sinon hits.sh */
+const cimg = document.getElementById('counterImg'), counterBox = document.getElementById('counter');
+function fallbackCounter() {
+  document.getElementById('stats').classList.remove('on');
+  counterBox.style.display = '';
+  cimg.onerror = () => { counterBox.style.display = 'none'; };
+  cimg.src = 'https://hits.sh/' + CONFIG.counterId + '.svg?label=%20&color=2dd4bf&labelColor=132038';
+}
+function pad(n) { return String(n).padStart(2, '0'); }
+async function goatStats() {
+  const base = 'https://' + CONFIG.goatcounter + '.goatcounter.com';
+  const d = new Date(), today = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const periods = { today: '?start=' + today, week: '?start=week', month: '?start=month', total: '' };
+  const path = encodeURIComponent(location.pathname || '/');
+  const get = q => fetch(base + '/counter/' + path + '.json' + q).then(r => {
+    if (r.status === 404) return { count: '0' };          // page pas encore visitée
+    if (!r.ok) throw new Error('goatcounter ' + r.status);
+    return r.json();
+  });
+  const res = await Promise.all(Object.values(periods).map(get));
+  Object.keys(periods).forEach((k, i) => { document.querySelector('[data-period="' + k + '"]').textContent = res[i].count; });
+  counterBox.style.display = 'none';
+  document.getElementById('stats').classList.add('on');
+}
+if (CONFIG.goatcounter && location.protocol.startsWith('http')) {
+  const gs = document.createElement('script');
+  gs.async = true; gs.src = 'https://gc.zgo.at/count.js';
+  gs.dataset.goatcounter = 'https://' + CONFIG.goatcounter + '.goatcounter.com/count';
+  document.head.appendChild(gs);
+  goatStats().catch(fallbackCounter);
+} else {
+  fallbackCounter();
+}
 
 /* Galerie défilante */
 const slidesEl = document.getElementById('slides'), dotsEl = document.getElementById('dots');
